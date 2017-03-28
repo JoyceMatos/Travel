@@ -13,6 +13,7 @@
 		256767951E8B00E800AD8F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256767941E8B00E800AD8F21 /* Assets.xcassets */; };
 		256767981E8B00E800AD8F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256767961E8B00E800AD8F21 /* LaunchScreen.storyboard */; };
 		256767A01E8B00F900AD8F21 /* SkyScannerAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */; };
+		256767A21E8B041300AD8F21 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256767A11E8B041300AD8F21 /* Secrets.swift */; };
 		CB89F7BBBF4D8C57DF1E93C8 /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697592DB50018E33A2425A0 /* Pods_Travel.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		256767971E8B00E800AD8F21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		256767991E8B00E800AD8F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyScannerAPIClient.swift; sourceTree = "<group>"; };
+		256767A11E8B041300AD8F21 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8697592DB50018E33A2425A0 /* Pods_Travel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D74D0F7433D81B0DB5BB4B /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,14 +66,39 @@
 			isa = PBXGroup;
 			children = (
 				2567678D1E8B00E800AD8F21 /* AppDelegate.swift */,
-				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
+				256767A11E8B041300AD8F21 /* Secrets.swift */,
+				256767A31E8B049E00AD8F21 /* Model */,
 				2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */,
-				256767911E8B00E800AD8F21 /* Main.storyboard */,
+				256767A41E8B04A400AD8F21 /* View */,
+				256767A51E8B056500AD8F21 /* View Model */,
 				256767941E8B00E800AD8F21 /* Assets.xcassets */,
 				256767961E8B00E800AD8F21 /* LaunchScreen.storyboard */,
 				256767991E8B00E800AD8F21 /* Info.plist */,
 			);
 			path = Travel;
+			sourceTree = "<group>";
+		};
+		256767A31E8B049E00AD8F21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		256767A41E8B04A400AD8F21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				256767911E8B00E800AD8F21 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		256767A51E8B056500AD8F21 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
+			);
+			name = "View Model";
 			sourceTree = "<group>";
 		};
 		2A121EA9385C5D98353DE234 /* Pods */ = {
@@ -215,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256767901E8B00E800AD8F21 /* ViewController.swift in Sources */,
+				256767A21E8B041300AD8F21 /* Secrets.swift in Sources */,
 				256767A01E8B00F900AD8F21 /* SkyScannerAPIClient.swift in Sources */,
 				2567678E1E8B00E800AD8F21 /* AppDelegate.swift in Sources */,
 			);
@@ -378,6 +406,7 @@
 				2567679E1E8B00E800AD8F21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
