@@ -22,11 +22,12 @@ class SkyScannerAPIClient {
 //            print(response.response) // HTTP URL response
 //            print(response.data)     // server data
 //            print(response.result)   // result of response serialization
-            
-            if let JSON = response.result.value as? [String: Any] {
-                print("JSON: \(JSON)")
-                completion(JSON)
+                        
+                if let JSON = response.result.value as? [String: Any] {
+                    print("JSON: \(JSON)")
+                    completion(JSON)
             }
+            
             
         }
         
@@ -39,6 +40,7 @@ class SkyScannerAPIClient {
             //            print(response.response) // HTTP URL response
             //            print(response.data)     // server data
             //            print(response.result)   // result of response serialization
+            
             
             if let JSON = response.result.value as? [String: Any] {
                 print("JSON: \(JSON)")

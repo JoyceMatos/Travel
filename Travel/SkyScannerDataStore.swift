@@ -47,11 +47,11 @@ class SkyScannerDataStore {
         
     }
     
-    func retrieveAllRoutes(_ budget: Int) {
+    func retrieveAllRoutes(_ budget: Int, completion: @escaping ([[String: Any]]) -> Void) {
         flightRoutes.removeAll()
         
         let routeQueue = DispatchQueue.global()
-        
+
         SkyScannerAPIClient.getFlights { (JSON) in
             
             guard let routes = JSON["Routes"] as? [[String: Any]],
@@ -61,13 +61,16 @@ class SkyScannerDataStore {
             }
 
             for route in routes {
-                guard let value = routes["Price"] as? Int else {
+                
+                guard let value = route["Price"] as? Int else {
                     return
                 }
+                print(value)
+
                 print("Route: \(route)")
-                
                 routeQueue.async {
-                    
+
+                
                     if value <= budget {
                         self.flightRoutes.append(route)
                         
@@ -75,7 +78,7 @@ class SkyScannerDataStore {
                 
         }
             
-            
+
             
             
             
@@ -83,7 +86,10 @@ class SkyScannerDataStore {
             
         }
         
+            completion(self.flightRoutes)
+
         }
+        
         
     }
 }
