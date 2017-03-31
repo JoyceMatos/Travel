@@ -12,7 +12,7 @@ import Alamofire
 
 class SkyScannerAPIClient {
     
-    class func getFlights(budget amount: Int, completion: () -> Void) {
+    class func getFlights(completion: @escaping ([String: Any]) -> Void) {
         
         // Browse Routes
         
@@ -23,15 +23,16 @@ class SkyScannerAPIClient {
 //            print(response.data)     // server data
 //            print(response.result)   // result of response serialization
             
-            if let JSON = response.result.value {
+            if let JSON = response.result.value as? [String: Any] {
                 print("JSON: \(JSON)")
+                completion(JSON)
             }
             
         }
         
     }
     
-    class func getQuotes(budget amount: Int, completion: () -> Void) {
+    class func getQuotes(completion: @escaping ([String: Any]) -> Void) {
         Alamofire.request("http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/usd/en-US/us/anywhere/anytime/anytime?apikey=" + skyScannerAPIKey).responseJSON { (response) in
             
             //            print(response.request)  // original URL request
@@ -39,9 +40,12 @@ class SkyScannerAPIClient {
             //            print(response.data)     // server data
             //            print(response.result)   // result of response serialization
             
-            if let JSON = response.result.value {
+            if let JSON = response.result.value as? [String: Any] {
                 print("JSON: \(JSON)")
+                completion(JSON)
+
             }
+            
             
         }
 
