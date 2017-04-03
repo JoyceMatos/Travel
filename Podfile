@@ -6,6 +6,7 @@ target 'Travel' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.4'
+  pod 'SnapKit'
 
   post_install do |installer|
          installer.pods_project.targets.each do |target|
