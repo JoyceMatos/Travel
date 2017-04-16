@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25132C8F1E8EFBE600392D52 /* SkyScannerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */; };
+		252686D01EA3C18800A8FDF3 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252686CF1EA3C18800A8FDF3 /* Places.swift */; };
 		2567678E1E8B00E800AD8F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567678D1E8B00E800AD8F21 /* AppDelegate.swift */; };
 		256767901E8B00E800AD8F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567678F1E8B00E800AD8F21 /* ViewController.swift */; };
 		256767931E8B00E800AD8F21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256767911E8B00E800AD8F21 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0A4B61AE874686364092CEDF /* Pods-Travel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.release.xcconfig"; sourceTree = "<group>"; };
 		25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyScannerDataStore.swift; sourceTree = "<group>"; };
+		252686CF1EA3C18800A8FDF3 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		2567678A1E8B00E800AD8F21 /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2567678D1E8B00E800AD8F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2567678F1E8B00E800AD8F21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				256767A31E8B049E00AD8F21 /* Model */,
 				2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */,
 				25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */,
+				252686CF1EA3C18800A8FDF3 /* Places.swift */,
 				256767A41E8B04A400AD8F21 /* View */,
 				256767A51E8B056500AD8F21 /* View Model */,
 				256767941E8B00E800AD8F21 /* Assets.xcassets */,
@@ -249,6 +252,7 @@
 				256767A21E8B041300AD8F21 /* Secrets.swift in Sources */,
 				256767A01E8B00F900AD8F21 /* SkyScannerAPIClient.swift in Sources */,
 				2567678E1E8B00E800AD8F21 /* AppDelegate.swift in Sources */,
+				252686D01EA3C18800A8FDF3 /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

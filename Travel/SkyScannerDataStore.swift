@@ -8,11 +8,13 @@
 
 import Foundation
 
-class SkyScannerDataStore {
+final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
     var flightQuotes = [[String: Any]]()
     var flightRoutes = [[String: Any]]()
+    
+    private init() {}
     
      func retriveFlights(_ budget: Int) {
         
@@ -43,6 +45,7 @@ class SkyScannerDataStore {
                 }
                     
             }
+                print("These are the quotes: \(self.flightQuotes)")
         }
         
     }
@@ -65,9 +68,9 @@ class SkyScannerDataStore {
                 guard let value = route["Price"] as? Int else {
                     return
                 }
-                print(value)
+            //    print(value)
 
-                print("Route: \(route)")
+            //    print("Route: \(route)")
                 routeQueue.async {
 
                 
