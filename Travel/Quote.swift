@@ -13,29 +13,35 @@ struct Quote {
     let quoteID: Int
     let minPrice: Int
     let direct: Bool
-    let outboundCarrier: String
-    let outboundOriginID: String
-    let outboundDestinationID: String
+    let outboundCarriers: [Int]
+    let outboundOriginID: Int
+    let outboundDestinationID: Int
     let outboundDepartureDate: String
-    let inboundCarrier: String
-    let inboundOriginID: String
-    let inboundDestinationID: String
+    let inboundCarriers: [Int]
+    let inboundOriginID: Int
+    let inboundDestinationID: Int
     let inboundDepartureDate: String
     let quoteDate: String
     
     init(JSON: [String: Any]) {
-        
+        let outbound = JSON[SkyScannerAPI.QuoteJSON.outbound] as! [String: Any]
+        let inbound = JSON[SkyScannerAPI.QuoteJSON.inbound] as! [String: Any]
+
         self.quoteID = JSON[SkyScannerAPI.QuoteJSON.quoteID] as! Int
         self.minPrice = JSON[SkyScannerAPI.QuoteJSON.minPrice] as! Int
         self.direct = JSON[SkyScannerAPI.QuoteJSON.direct] as! Bool
-    //    self.outboundCarrier = JSON[SkyScannerAPI.QuoteJSON.outbound] as! Int
-
-
-
-    
-        
-        
+        self.outboundCarriers = outbound[SkyScannerAPI.QuoteJSON.carriers] as! [Int]
+        self.outboundOriginID = outbound[SkyScannerAPI.QuoteJSON.originID] as! Int
+        self.outboundDestinationID = outbound[SkyScannerAPI.QuoteJSON.destinationID] as! Int
+        self.outboundDepartureDate = outbound[SkyScannerAPI.QuoteJSON.departureDate] as! String
+        self.inboundCarriers = inbound[SkyScannerAPI.QuoteJSON.carriers] as! [Int]
+        self.inboundOriginID = inbound[SkyScannerAPI.QuoteJSON.originID] as! Int
+        self.inboundDestinationID = inbound[SkyScannerAPI.QuoteJSON.destinationID] as! Int
+        self.inboundDepartureDate = inbound[SkyScannerAPI.QuoteJSON.departureDate] as! String
+        self.quoteDate = JSON[SkyScannerAPI.QuoteJSON.quoteDate] as! String
         
     }
+    
+    
     
 }
