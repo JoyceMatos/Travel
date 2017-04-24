@@ -10,6 +10,7 @@ import Foundation
 
 struct Flight {
     
-    
+    let carrierID: Int
+    let name: String
     
 }
