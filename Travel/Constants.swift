@@ -10,7 +10,7 @@ import Foundation
 
 struct SkyScannerAPI {
     
-    static let baseURLString = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/usd/en-US/us/anywhere/anytime/anytime?apikey="
+    static let baseURLString = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/"
     
     struct QuoteJSON {
         
@@ -27,6 +27,16 @@ struct SkyScannerAPI {
 
     }
     
+    struct PlaceJSON {
+        
+        static let placeID = "PlaceId"
+        static let iataCode = "IataCode"
+        static let name = "Name"
+        static let city = "CityName"
+        static let cityID = "CityId"
+        static let country = "CountryName"
+        
+    }
     
     
 }
