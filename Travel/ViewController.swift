@@ -13,10 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//     SkyScannerDataStore.shared.retrieveAllRoutes(500) { (flights) in
-//        print("There are the flights: \(flights)")
-//        }
-        
         SkyScannerDataStore.shared.retriveFlights(500)
 
     }

@@ -18,7 +18,7 @@ class SkyScannerAPIClient {
         
         // Browse Routes
         
-        Alamofire.request("http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/US/usd/en-US/us/anywhere/anytime/anytime?apikey=" + skyScannerAPIKey).responseJSON { (response) in
+        Alamofire.request(SkyScannerAPI.baseURLString + skyScannerAPIKey).responseJSON { (response) in
             
 //            print(response.request)  // original URL request
 //            print(response.response) // HTTP URL response
@@ -36,7 +36,7 @@ class SkyScannerAPIClient {
     }
     
     class func getQuotes(completion: @escaping ([String: Any]) -> Void) {
-        Alamofire.request("http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/usd/en-US/us/anywhere/anytime/anytime?apikey=" + skyScannerAPIKey).responseJSON { (response) in
+        Alamofire.request(SkyScannerAPI.baseURLString + skyScannerAPIKey).responseJSON { (response) in
             
             //            print(response.request)  // original URL request
             //            print(response.response) // HTTP URL response

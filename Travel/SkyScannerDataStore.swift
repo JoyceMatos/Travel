@@ -13,6 +13,7 @@ final class SkyScannerDataStore {
     static let shared = SkyScannerDataStore()
     var flightQuotes = [[String: Any]]()
     var flightRoutes = [[String: Any]]()
+    var quoteObjects
     
     private init() {}
     
@@ -39,6 +40,10 @@ final class SkyScannerDataStore {
                     quotesQueue.async {
 
                     if value <= budget {
+                        
+                       //     let cheapestFlight = Quote
+                        
+                        
                         self.flightQuotes.append(quote)
                         
                     }
