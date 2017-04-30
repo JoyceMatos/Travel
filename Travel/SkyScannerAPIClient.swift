@@ -12,7 +12,6 @@ import Alamofire
 
 class SkyScannerAPIClient {
     
-    
     // TODO: - Handle Errors
     // TODO: - Edit base URL so that you can add inputs based on origin Airport, Country, Etc.
     
@@ -30,11 +29,7 @@ class SkyScannerAPIClient {
                 completion(JSON)
 
             }
-            
-            
         }
-
-        
     }
     
     

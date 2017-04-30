@@ -23,6 +23,8 @@ struct Quote {
     let inboundDepartureDate: String
     let quoteDate: String
     
+    // TODO: - Add actual flight info. ie: Origin name, airport, etc.
+    
     init(JSON: [String: Any]) {
         let outbound = JSON[SkyScannerAPI.QuoteJSON.outbound] as! [String: Any]
         let inbound = JSON[SkyScannerAPI.QuoteJSON.inbound] as! [String: Any]
