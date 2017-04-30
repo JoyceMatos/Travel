@@ -13,13 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SkyScannerAPIClient.getFlights(budget: 2) { 
-            print("Just testing")
-        }
-        
-        
+        SkyScannerDataStore.shared.retriveFlights(500)
+
     }
-
-
 }
 
