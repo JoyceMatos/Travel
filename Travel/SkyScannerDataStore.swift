@@ -11,7 +11,7 @@ import Foundation
 final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
-    var flightRoutes = [[String: Any]]()
+   // var flightRoutes = [[String: Any]]()
     var flightQuotes = [Quote]()
     
     private init() {}
