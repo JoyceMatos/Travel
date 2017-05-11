@@ -8,6 +8,9 @@
 
 import Foundation
 
+// TODO: - Add origin label
+// TODO: - Find departure time
+
 struct Quote {
     
     let quoteID: Int

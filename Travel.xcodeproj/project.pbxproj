@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2507939E1EC50CA200E2DFAA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507939D1EC50CA200E2DFAA /* Request.swift */; };
 		250793A01EC5154800E2DFAA /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507939F1EC5154800E2DFAA /* FlightView.swift */; };
+		250793A61EC5280600E2DFAA /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A51EC5280600E2DFAA /* FlightCell.swift */; };
 		25132C8F1E8EFBE600392D52 /* SkyScannerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */; };
 		252686D01EA3C18800A8FDF3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252686CF1EA3C18800A8FDF3 /* Place.swift */; };
 		254625881EA8FFB600DA7811 /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254625871EA8FFB600DA7811 /* Carrier.swift */; };
@@ -29,6 +30,7 @@
 		0A4B61AE874686364092CEDF /* Pods-Travel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.release.xcconfig"; sourceTree = "<group>"; };
 		2507939D1EC50CA200E2DFAA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2507939F1EC5154800E2DFAA /* FlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
+		250793A51EC5280600E2DFAA /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyScannerDataStore.swift; sourceTree = "<group>"; };
 		252686CF1EA3C18800A8FDF3 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		254625871EA8FFB600DA7811 /* Carrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				256767911E8B00E800AD8F21 /* Main.storyboard */,
 				2507939F1EC5154800E2DFAA /* FlightView.swift */,
+				250793A51EC5280600E2DFAA /* FlightCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				256767901E8B00E800AD8F21 /* ViewController.swift in Sources */,
 				256767A21E8B041300AD8F21 /* Secrets.swift in Sources */,
 				25580BD01EB81E8D002F75A9 /* Flight.swift in Sources */,
+				250793A61EC5280600E2DFAA /* FlightCell.swift in Sources */,
 				250793A01EC5154800E2DFAA /* FlightView.swift in Sources */,
 				2507939E1EC50CA200E2DFAA /* Request.swift in Sources */,
 				256767A01E8B00F900AD8F21 /* SkyScannerAPIClient.swift in Sources */,

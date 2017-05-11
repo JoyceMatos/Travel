@@ -9,15 +9,12 @@
 import UIKit
 
 class FlightView: UIView {
-
-    let destinationLabel = UILabel()
-    
     
     // TODO: - Research initializers
     
-//    convenience init() {
-//        self.init(frame: .zero)
-//    }
+    //    convenience init() {
+    //        self.init(frame: .zero)
+    //    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +25,4 @@ class FlightView: UIView {
     }
     
     
-    
-    
-    
-
 }

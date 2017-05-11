@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: - Get departure time
+
 final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
