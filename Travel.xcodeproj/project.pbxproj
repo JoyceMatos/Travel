@@ -11,7 +11,8 @@
 		250793A01EC5154800E2DFAA /* FlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507939F1EC5154800E2DFAA /* FlightView.swift */; };
 		250793A61EC5280600E2DFAA /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A51EC5280600E2DFAA /* FlightCell.swift */; };
 		250793A81EC64D8A00E2DFAA /* FlightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A71EC64D8A00E2DFAA /* FlightTableView.swift */; };
-		250793AA1EC6507400E2DFAA /* FlightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A91EC6507400E2DFAA /* FlightVC.swift */; };
+		250793AA1EC6507400E2DFAA /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A91EC6507400E2DFAA /* FlightViewController.swift */; };
+		250BDB2B1ECFB76E005166DB /* FlightCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */; };
 		25132C8F1E8EFBE600392D52 /* SkyScannerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */; };
 		252686D01EA3C18800A8FDF3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252686CF1EA3C18800A8FDF3 /* Place.swift */; };
 		254625881EA8FFB600DA7811 /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254625871EA8FFB600DA7811 /* Carrier.swift */; };
@@ -34,7 +35,8 @@
 		2507939F1EC5154800E2DFAA /* FlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightView.swift; sourceTree = "<group>"; };
 		250793A51EC5280600E2DFAA /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		250793A71EC64D8A00E2DFAA /* FlightTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightTableView.swift; sourceTree = "<group>"; };
-		250793A91EC6507400E2DFAA /* FlightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightVC.swift; sourceTree = "<group>"; };
+		250793A91EC6507400E2DFAA /* FlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCellViewModel.swift; sourceTree = "<group>"; };
 		25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyScannerDataStore.swift; sourceTree = "<group>"; };
 		252686CF1EA3C18800A8FDF3 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		254625871EA8FFB600DA7811 /* Carrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
@@ -129,7 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
-				250793A91EC6507400E2DFAA /* FlightVC.swift */,
+				250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */,
+				250793A91EC6507400E2DFAA /* FlightViewController.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -288,7 +291,8 @@
 				252686D01EA3C18800A8FDF3 /* Place.swift in Sources */,
 				254625881EA8FFB600DA7811 /* Carrier.swift in Sources */,
 				2546258E1EAE8A0A00DA7811 /* Constants.swift in Sources */,
-				250793AA1EC6507400E2DFAA /* FlightVC.swift in Sources */,
+				250BDB2B1ECFB76E005166DB /* FlightCellViewModel.swift in Sources */,
+				250793AA1EC6507400E2DFAA /* FlightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let initialViewController = FlightVC()
+        let initialViewController = FlightViewController()
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
         self.window?.rootViewController = initialViewController
