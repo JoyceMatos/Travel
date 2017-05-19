@@ -68,6 +68,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250BDB2C1ECFB7D6005166DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
+				250793A91EC6507400E2DFAA /* FlightViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		250BDB2D1ECFB7F2005166DB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2546258D1EAE8A0A00DA7811 /* Constants.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		250BDB2E1ECFB807005166DB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */,
+				25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		250BDB2F1ECFB83A005166DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2567678D1E8B00E800AD8F21 /* AppDelegate.swift */,
+				256767961E8B00E800AD8F21 /* LaunchScreen.storyboard */,
+				256767941E8B00E800AD8F21 /* Assets.xcassets */,
+				256767991E8B00E800AD8F21 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		256767811E8B00E800AD8F21 = {
 			isa = PBXGroup;
 			children = (
@@ -89,22 +126,14 @@
 		2567678C1E8B00E800AD8F21 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
-				2567678D1E8B00E800AD8F21 /* AppDelegate.swift */,
 				256767A11E8B041300AD8F21 /* Secrets.swift */,
-				2546258D1EAE8A0A00DA7811 /* Constants.swift */,
+				250BDB2D1ECFB7F2005166DB /* Helpers */,
+				250BDB2E1ECFB807005166DB /* API */,
 				256767A31E8B049E00AD8F21 /* Model */,
-				2567679F1E8B00F900AD8F21 /* SkyScannerAPIClient.swift */,
-				25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */,
-				252686CF1EA3C18800A8FDF3 /* Place.swift */,
-				2546258B1EAE85AE00DA7811 /* Quote.swift */,
-				254625871EA8FFB600DA7811 /* Carrier.swift */,
-				25580BCF1EB81E8D002F75A9 /* Flight.swift */,
-				2507939D1EC50CA200E2DFAA /* Request.swift */,
 				256767A41E8B04A400AD8F21 /* View */,
 				256767A51E8B056500AD8F21 /* View Model */,
-				256767941E8B00E800AD8F21 /* Assets.xcassets */,
-				256767961E8B00E800AD8F21 /* LaunchScreen.storyboard */,
-				256767991E8B00E800AD8F21 /* Info.plist */,
+				250BDB2C1ECFB7D6005166DB /* Controller */,
+				250BDB2F1ECFB83A005166DB /* Supporting Files */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -112,6 +141,11 @@
 		256767A31E8B049E00AD8F21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				252686CF1EA3C18800A8FDF3 /* Place.swift */,
+				2546258B1EAE85AE00DA7811 /* Quote.swift */,
+				254625871EA8FFB600DA7811 /* Carrier.swift */,
+				25580BCF1EB81E8D002F75A9 /* Flight.swift */,
+				2507939D1EC50CA200E2DFAA /* Request.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -130,9 +164,7 @@
 		256767A51E8B056500AD8F21 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
 				250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */,
-				250793A91EC6507400E2DFAA /* FlightViewController.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
