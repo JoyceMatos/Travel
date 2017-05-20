@@ -9,12 +9,14 @@
 import Foundation
 
 // TODO: - Get departure time
+// TODO: - Delete array of objects that aren't in use
 
 final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
    // var flightRoutes = [[String: Any]]()
     var flightQuotes = [Quote]()
+    var flights = [Flight]
     
     private init() {}
     
@@ -34,11 +36,13 @@ final class SkyScannerDataStore {
                     return
             }
             
+            let airlines = get(carriers)
+            let locations = get(places)
+            
             for quote in quotes {
                 guard let value = quote["MinPrice"] as? Int else { // NOTE: - Sometimes breaks here
                     return
                 }
-                
                     if value <= budget {
                         let cheapestFlight = Quote(JSON: quote) // NOTE: - Sometimes breaks here
                         self.flightQuotes.append(cheapestFlight)
@@ -48,6 +52,43 @@ final class SkyScannerDataStore {
             }
             print("These are the quotes: \(self.flightQuotes.count)")
         }
+        
+    }
+    
+    
+    // TODO: - These two functions can be generics (Carriers and Places)
+    
+    func get(_ carriers: [JSON]) -> [Carrier] {
+        var airlines = [Carrier]()
+        
+        for json in carriers {
+            let carrier = Carrier(with: json)
+            airlines.append(carrier)
+        }
+        
+        return airlines
+    }
+    
+    func get(_ places: [JSON]) -> [Place] {
+        var locations = [Place]
+        
+        for json in places {
+            let place = Place(with: json)
+            locations.append(place)
+        }
+        
+        return locations
+    }
+    
+    func createFlights(from quotes: [Quote], for places: [Place], and airlines: [Carrier]) -> [Flight] {
+        
+        for quote in quotes {
+           places.filter(<#T##isIncluded: (Place) throws -> Bool##(Place) throws -> Bool#>)
+            
+        }
+        
+        
+        
         
     }
     

@@ -9,13 +9,18 @@
 import Foundation
 
 // NOTE: - Information needed for display
+// TODO: - Add inbound carriers and outbound carriers
 
 struct Flight {
     
-    let destination: Place
-    let quote: Int
+    let inboundOrigin: Place?
+    let inboundDestination: Place?
+    let outboundOrigin: Place?
+    let outboundDestination: Place?
+    let price: Int
     let direct: Bool
-    let airlines: [Carrier]
+    let outboundAirlines: [Carrier]?
+    let inboundAirlines: [Carrier]?
     let outboundDepartureDate: String
     let inboundDepartureDate: String
     

@@ -12,15 +12,23 @@ struct Place {
     
     let placeID: String
     let iataCode: String
-    let name: String
     let city: String
     let cityID: String
     let country: String
     
-    // TODO: - Create init and check to see if they contain all attributes in JSON ; if not, do not use
-//    init(JSON: [String: Any]) {
-//        
-//        
-//    }
+    // TODO: - Create init and check to see if it contains iataCode and cityname ; if not, do not use
+    init(with JSON: JSON) {
+        let placeID = JSON["PlaceId"] as! Int
+        let iataCode = JSON["IataCode"] as! String
+        let city = JSON["CityName"] as! String
+        let cityID = JSON["CityId"] as! String
+        let country = JSON["CountryName"] as! String
+        
+        self.placeID = placeID
+        self.iataCode = iataCode
+        self.city = city
+        self.cityID = cityID
+        self.country = country
+    }
     
 }
