@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+// TODO: - Naming convention for file/class
+
+final class FlightViewModel {
+    
+    let store = SkyScannerDataStore.shared
+    
+    
+    
+}

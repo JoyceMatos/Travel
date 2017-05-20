@@ -8,6 +8,9 @@
 
 import UIKit
 
+// TODO: - Seperate view model logic
+
+
 class FlightViewController: UIViewController {
 
     let tableView = UITableView()
@@ -63,8 +66,14 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flightCell", for: indexPath) as! FlightCell
         
-        print("Yes lets use this cell!")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let currentCell = cell as! FlightCell
+        
+        // TODO: - Find out how to seperate functionality to view model
+       // currentCell.quote = quote
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

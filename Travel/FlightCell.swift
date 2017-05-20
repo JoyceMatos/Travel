@@ -33,20 +33,17 @@ class FlightCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
-        configureLabels() // For testing purposes
+        configureLabels()
         constrain()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
     
    func configureLabels() {
     destinationLabel.text =  "San Jose" //"\(quote?.outboundOriginID)" // TODO:- Change to origin name
@@ -85,17 +82,15 @@ class FlightCell: UITableViewCell {
         self.contentView.addSubview(inboundOriginAirportLabel)
         self.contentView.addSubview(inboundDestAirportLabel)
         
+        destinationLabel.textColor = UIColor.black
+        destinationLabel.font.withSize(14)
+        
         destinationLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().inset(40)
-            $0.height.equalToSuperview().multipliedBy(0.1)
-            $0.width.equalToSuperview().multipliedBy(0.8
-            )
+            $0.height.equalToSuperview().multipliedBy(0.5)
+            $0.width.equalToSuperview().multipliedBy(0.8)
         }
-        
-
-
-        
     }
 
 }

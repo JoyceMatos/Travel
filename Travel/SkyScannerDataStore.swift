@@ -24,9 +24,10 @@ final class SkyScannerDataStore {
     func retriveFlights(_ budget: Int) {
         flightQuotes.removeAll()
         
-     //   let quotesQueue = DispatchQueue.global()
+        let quotesQueue = DispatchQueue.global()
+        quotesQueue.async {
+
         SkyScannerAPIClient.getQuotes { (JSON) in
-            
             guard let quotes = JSON["Quotes"] as? [[String: Any]],
                 let places = JSON["Places"] as? [[String: Any]],
                 let carriers = JSON["Carriers"] as? [[String: Any]] else {
@@ -38,14 +39,13 @@ final class SkyScannerDataStore {
                     return
                 }
                 
-             //   quotesQueue.async {
                     if value <= budget {
                         let cheapestFlight = Quote(JSON: quote) // NOTE: - Sometimes breaks here
                         self.flightQuotes.append(cheapestFlight)
                     }
                 }
                 
-           // }
+            }
             print("These are the quotes: \(self.flightQuotes.count)")
         }
         
