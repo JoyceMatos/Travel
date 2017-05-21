@@ -16,7 +16,7 @@ final class SkyScannerDataStore {
     static let shared = SkyScannerDataStore()
    // var flightRoutes = [[String: Any]]()
     var flightQuotes = [Quote]()
-    var flights = [Flight]
+    var flights = [Flight]()
     
     private init() {}
     
@@ -36,8 +36,9 @@ final class SkyScannerDataStore {
                     return
             }
             
-            let airlines = get(carriers)
-            let locations = get(places)
+//            var airlines = get(carriers)
+//            var locations = get(places)
+            
             
             for quote in quotes {
                 guard let value = quote["MinPrice"] as? Int else { // NOTE: - Sometimes breaks here
@@ -70,7 +71,7 @@ final class SkyScannerDataStore {
     }
     
     func get(_ places: [JSON]) -> [Place] {
-        var locations = [Place]
+        var locations = [Place]()
         
         for json in places {
             let place = Place(with: json)
@@ -80,18 +81,21 @@ final class SkyScannerDataStore {
         return locations
     }
     
-    func createFlights(from quotes: [Quote], for places: [Place], and airlines: [Carrier]) -> [Flight] {
-        
-        for quote in quotes {
-           places.filter(<#T##isIncluded: (Place) throws -> Bool##(Place) throws -> Bool#>)
-            
-        }
-        
-        
-        
-        
-    }
-    
+//    func createFlights(from quotes: [Quote], for places: [Place], and airlines: [Carrier]) -> [Flight] {
+//        
+//        for quote in quotes {
+//            
+//            let inBoundOrigin = places.filter({$0.placeID == quote.inboundOriginID})
+//            print(inBoundOrigin)
+//            
+////           let flight = Flight(inboundOrigin: <#T##Place?#>, inboundDestination: <#T##Place?#>, outboundOrigin: <#T##Place?#>, outboundDestination: <#T##Place?#>, price: quote.minPrice, direct: quote.direct, outboundAirlines: <#T##[Carrier]?#>, inboundAirlines: <#T##[Carrier]?#>, outboundDepartureDate: quote.inboundDepartureDate, inboundDepartureDate: quote.inboundDepartureDate)
+//        }
+//        
+//        
+//        
+//        
+//    }
+//    
     
     
 }

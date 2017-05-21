@@ -10,13 +10,18 @@ import Foundation
 
 struct Place {
     
-    let placeID: String
+    let placeID: Int
     let iataCode: String
     let city: String
     let cityID: String
     let country: String
     
     // TODO: - Create init and check to see if it contains iataCode and cityname ; if not, do not use
+    
+}
+
+// This extension allows us to keep our default initializer
+extension Place {
     init(with JSON: JSON) {
         let placeID = JSON["PlaceId"] as! Int
         let iataCode = JSON["IataCode"] as! String

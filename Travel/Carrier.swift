@@ -14,7 +14,7 @@ struct Carrier {
     let name: String
     
     init(with JSON: JSON) {
-        let carrerID = JSON["CarrierId"] as! Int
+        let carrierID = JSON["CarrierId"] as! Int
         let name = JSON["Name"] as! String
         
         self.carrierID = carrierID

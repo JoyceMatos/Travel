@@ -32,6 +32,7 @@ class FlightViewController: UIViewController {
         tableView.register(FlightCell.self, forCellReuseIdentifier: "flightCell")
         
         constrain()
+        
         // Do any additional setup after loading the view.
     }
 
