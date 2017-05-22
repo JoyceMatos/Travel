@@ -33,6 +33,8 @@ class FlightViewController: UIViewController {
         
         constrain()
         
+        SkyScannerDataStore.shared.retriveFlights(500)
+        
         // Do any additional setup after loading the view.
     }
 

@@ -13,6 +13,7 @@ import Foundation
 
 struct Flight {
     
+    let quoteID: Int
     let inboundOrigin: Place?
     let inboundDestination: Place?
     let outboundOrigin: Place?

@@ -19,21 +19,27 @@ struct Quote {
     let direct: Bool
     
     let outboundCarriers: [Int]
+    var outboundAirlines: [String?]
     let outboundOriginID: Int
-    let outboundOriginCity: String
-    let outboundOriginIata: String
+    var outboundOriginCity: String?
+    var outboundOriginIata: String?
+    var outboundOriginCountry: String?
     let outboundDestinationID: Int
-    let outboundDestinationCity: String
-    let outboundDestinationIata: String
+    var outboundDestinationCity: String?
+    var outboundDestinationIata: String?
+    var outboundDestinationCountry: String?
     let outboundDepartureDate: String
     
     let inboundCarriers: [Int]
+    var inboundAirlines: [String?]
     let inboundOriginID: Int
-    let inboundOriginCity: String
-    let inboundOriginIata: String
+    var inboundOriginCity: String?
+    let inboundOriginIata: String?
+    var inboundOriginCountry: String?
     let inboundDestinationID: Int
-    let inboundDestinationName: String
-    let inboundDestinationIata: String
+    var inboundDestinationCity: String?
+    var inboundDestinationIata: String?
+    var inboundDestinationCountry: String?
     let inboundDepartureDate: String
     
     // TODO: - Add actual flight info. ie: Origin name, airport, etc.
@@ -48,7 +54,6 @@ struct Quote {
         
         self.outboundCarriers = outbound[SkyScannerAPI.QuoteJSON.carriers] as! [Int]
         self.outboundOriginID = outbound[SkyScannerAPI.QuoteJSON.originID] as! Int        
-        
         
         self.outboundDestinationID = outbound[SkyScannerAPI.QuoteJSON.destinationID] as! Int
         self.outboundDepartureDate = outbound[SkyScannerAPI.QuoteJSON.departureDate] as! String
