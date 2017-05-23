@@ -15,7 +15,6 @@ final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
     var flightQuotes = [Quote]()
-    var flights = [Flight]()
     
     private init() {}
     
@@ -38,6 +37,11 @@ final class SkyScannerDataStore {
         var locations = [Place]()
         
         for json in places {
+            
+            if json["IataCode"] == nil {
+                continue
+            }
+            
             let place = Place(with: json)
             locations.append(place)
         }
@@ -90,21 +94,29 @@ final class SkyScannerDataStore {
                 }
                 
                 for flight in self.flightQuotes {
+                    print("FLight")
                     for location in locations {
+                        print("location")
+                        print("Here is my locationID: \(location.placeID)")
                         if flight.outboundOriginID == location.placeID {
                             flight.outboundOriginCity = location.city
                             flight.outboundOriginCountry = location.country
                             flight.outboundOriginIata = location.iataCode
-                            
-                        } else if flight.outboundDestinationID == location.placeID {
+                        }
+                        
+                        if flight.outboundDestinationID == location.placeID {
                             flight.outboundDestinationCity = location.city
                             flight.outboundDestinationCountry = location.country
                             flight.outboundDestinationIata = location.iataCode
-                        } else if flight.inboundOriginID == location.placeID {
+                        }
+                        
+                        if flight.inboundOriginID == location.placeID {
                             flight.inboundOriginCity = location.city
                             flight.inboundOriginCountry = location.country
                             flight.inboundOriginIata = location.iataCode
-                        } else if flight.inboundDestinationID == location.placeID {
+                        }
+                        
+                        if flight.inboundDestinationID == location.placeID {
                             flight.inboundDestinationCity = location.city
                             flight.inboundDestinationCountry = location.country
                             flight.inboundDestinationIata = location.iataCode
@@ -114,14 +126,39 @@ final class SkyScannerDataStore {
                     
                     for airline in airlines {
                         
+                        if airline.carrierID == 1713 {
+                            print("Hello we exist!")
+                        }
+                            
                         if flight.inboundCarriers.contains(airline.carrierID) {
-                            flight.inboundAirlines.append(airline.name)
-                        } else if flight.outboundCarriers.contains(airline.carrierID) {
-                            flight.outboundAirlines.append(airline.name)
+                            print("FLIGHT CARRIER ID: \(flight.inboundCarriers)")
+                            print("AIRLINE CARRIER ID \(airline.carrierID)")
+                            print("AIRLINE NAME: \(airline.name)")
+                            // TODO: - This might override previous values
+                            flight.inboundAirlines = [airline.name]
+                                print("AIRLINE NAME 2: \(airline.name)")
+
+
+                        }
+                        
+                        if flight.outboundCarriers.contains(airline.carrierID) {
+                            flight.outboundAirlines = [airline.name]
                         }
                     }
                     
-                    print("Here is the complete flight: \(flight)")
+
+                }
+                
+                for flight in self.flightQuotes {
+                    
+                    
+                    
+                    print("Here is the origin city: \(flight.inboundOriginCity)")
+                    print("Here is the destination city: \(flight.inboundDestinationCity)")
+                    print("Here is the airlines: \(flight.inboundAirlines)")
+                    print("Here is the price: \(flight.minPrice)")
+                    print("Quote ID: \(flight.quoteID)")
+
                 }
                 
             }
