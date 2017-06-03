@@ -12,6 +12,8 @@
 		250793A61EC5280600E2DFAA /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A51EC5280600E2DFAA /* FlightCell.swift */; };
 		250793A81EC64D8A00E2DFAA /* FlightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A71EC64D8A00E2DFAA /* FlightTableView.swift */; };
 		250793AA1EC6507400E2DFAA /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250793A91EC6507400E2DFAA /* FlightViewController.swift */; };
+		25087EA61EE355B70036F6DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25087EA51EE355B70036F6DD /* HomeView.swift */; };
+		25087EA81EE358380036F6DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25087EA71EE358380036F6DD /* HomeViewController.swift */; };
 		250BDB2B1ECFB76E005166DB /* FlightCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */; };
 		25132C8F1E8EFBE600392D52 /* SkyScannerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */; };
 		252686D01EA3C18800A8FDF3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252686CF1EA3C18800A8FDF3 /* Place.swift */; };
@@ -36,6 +38,8 @@
 		250793A51EC5280600E2DFAA /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		250793A71EC64D8A00E2DFAA /* FlightTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightTableView.swift; sourceTree = "<group>"; };
 		250793A91EC6507400E2DFAA /* FlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		25087EA51EE355B70036F6DD /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		25087EA71EE358380036F6DD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		250BDB2A1ECFB76E005166DB /* FlightCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCellViewModel.swift; sourceTree = "<group>"; };
 		25132C8E1E8EFBE600392D52 /* SkyScannerDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyScannerDataStore.swift; sourceTree = "<group>"; };
 		252686CF1EA3C18800A8FDF3 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				2567678F1E8B00E800AD8F21 /* ViewController.swift */,
+				25087EA71EE358380036F6DD /* HomeViewController.swift */,
 				250793A91EC6507400E2DFAA /* FlightViewController.swift */,
 			);
 			name = Controller;
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				256767911E8B00E800AD8F21 /* Main.storyboard */,
+				25087EA51EE355B70036F6DD /* HomeView.swift */,
 				2507939F1EC5154800E2DFAA /* FlightView.swift */,
 				250793A51EC5280600E2DFAA /* FlightCell.swift */,
 				250793A71EC64D8A00E2DFAA /* FlightTableView.swift */,
@@ -314,6 +320,8 @@
 				256767A21E8B041300AD8F21 /* Secrets.swift in Sources */,
 				25580BD01EB81E8D002F75A9 /* Flight.swift in Sources */,
 				250793A61EC5280600E2DFAA /* FlightCell.swift in Sources */,
+				25087EA81EE358380036F6DD /* HomeViewController.swift in Sources */,
+				25087EA61EE355B70036F6DD /* HomeView.swift in Sources */,
 				250793A01EC5154800E2DFAA /* FlightView.swift in Sources */,
 				2507939E1EC50CA200E2DFAA /* Request.swift in Sources */,
 				256767A01E8B00F900AD8F21 /* SkyScannerAPIClient.swift in Sources */,
