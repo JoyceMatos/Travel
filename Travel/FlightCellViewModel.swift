@@ -10,10 +10,93 @@ import Foundation
 
 // TODO: - Naming convention for file/class
 
-final class FlightViewModel {
+struct FlightViewModel {
     
     let store = SkyScannerDataStore.shared
     
+    private var quote: Quote?
+    // Quote properties 
+    
+    var outboundCarriers: [Int]? {
+        return quote?.outboundCarriers
+    }
+    var outboundAirlines: [String]? {
+        return quote?.outboundAirlines
+    }
+    
+    var outboundOriginID: Int? {
+        return quote?.outboundOriginID
+    }
+    var outboundOriginCity: String? {
+        return quote?.outboundOriginCity
+    }
+    
+    var outboundOriginIata: String? {
+        return quote?.outboundOriginIata
+    }
+    
+    var outboundOriginCountry: String? {
+        return quote?.outboundOriginCountry
+    }
+    
+    var outboundDestinationID: Int? {
+        return quote?.outboundDestinationID
+    }
+    
+    var outboundDestinationCity: String? {
+        return quote?.outboundDestinationCity
+    }
+    var outboundDestinationIata: String? {
+        return quote?.outboundDestinationIata
+    }
+    var outboundDestinationCountry: String? {
+        return quote?.outboundDestinationCountry
+    }
+    
+    var outboundDepartureDate: String? {
+        return quote?.outboundDepartureDate
+    }
+    
+    var inboundCarriers: [Int]? {
+        return quote?.inboundCarriers
+    }
+    var inboundAirlines: [String]? {
+        return quote?.inboundAirlines
+    }
+    var inboundOriginID: Int? {
+        return quote?.inboundOriginID
+    }
+    var inboundOriginCity: String? {
+        return quote?.inboundOriginCity
+    }
+    var inboundOriginIata: String? {
+        return quote?.outboundOriginIata
+    }
+    var inboundOriginCountry: String? {
+        return quote?.outboundOriginCountry
+    }
+    var inboundDestinationID: Int? {
+        return quote?.inboundDestinationID
+    }
+    var inboundDestinationCity: String? {
+        return quote?.inboundDestinationCity
+    }
+    var inboundDestinationIata: String? {
+        return quote?.inboundDestinationIata
+    }
+    var inboundDestinationCountry: String? {
+        return quote?.inboundDestinationCountry
+    }
+    var inboundDepartureDate: String? {
+        return quote?.inboundDepartureDate
+        }
+    
+    
+    init(quote: Quote) {
+        self.quote = quote
+        
+    }
+
     
     
 }

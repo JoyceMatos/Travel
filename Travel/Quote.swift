@@ -11,20 +11,23 @@ import Foundation
 // TODO: - Add origin label
 // TODO: - Find departure time
 // TODO: - Add origin city, country, airline
+// TODO: - Naming convention
 
 final class Quote {
     
-    var quoteID: Int
+    var quoteID: Int    // Debatable property
     var minPrice: Int
     var direct: Bool
     
+    // TODO: - Outbound/inbound can be a dictionaries
+    
     var outboundCarriers: [Int]
     var outboundAirlines: [String]?
-    var outboundOriginID: Int
+    var outboundOriginID: Int       // Debatable property
     var outboundOriginCity: String?
     var outboundOriginIata: String?
     var outboundOriginCountry: String?
-    var outboundDestinationID: Int
+    var outboundDestinationID: Int      // Debatable property
     var outboundDestinationCity: String?
     var outboundDestinationIata: String?
     var outboundDestinationCountry: String?
@@ -32,11 +35,11 @@ final class Quote {
     
     var inboundCarriers: [Int]
     var inboundAirlines: [String]?
-    var inboundOriginID: Int
+    var inboundOriginID: Int        // Debatable property
     var inboundOriginCity: String?
     var inboundOriginIata: String?
     var inboundOriginCountry: String?
-    var inboundDestinationID: Int
+    var inboundDestinationID: Int       // Debatable property
     var inboundDestinationCity: String?
     var inboundDestinationIata: String?
     var inboundDestinationCountry: String?
