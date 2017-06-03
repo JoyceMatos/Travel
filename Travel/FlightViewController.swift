@@ -36,9 +36,12 @@ class FlightViewController: UIViewController {
         
         constrain()
         
-        SkyScannerDataStore.shared.retriveFlights(500)
-        
-        // Do any additional setup after loading the view.
+        self.store.retriveFlights(500) { (success) in
+            if success {
+                    print("Yay")
+                    self.tableView.reloadData()
+                }
+            }
     }
 
 
@@ -66,19 +69,18 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return store.flightQuotes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flightCell", for: indexPath) as! FlightCell
-
+   
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let currentCell = cell as! FlightCell
         let quote = store.flightQuotes[indexPath.row]
-        
         
         // TODO: - Find out how to seperate functionality to view model
         currentCell.quote = quote

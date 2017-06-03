@@ -10,6 +10,7 @@ import Foundation
 
 // TODO: - Get departure time
 // TODO: - Do you want to use objects or direct data parsing? (Essentially you are storing same info in diff places by using objects)
+// TODO: - Work on async calls
 
 final class SkyScannerDataStore {
     
@@ -20,7 +21,6 @@ final class SkyScannerDataStore {
     
     // TODO: - Create Places objects and Carrier objects OR Incorporate all these details in one flight object.
     // TODO: - Remove async method
-    
     
     func retrieve(airline carriers: [JSON]) -> [Carrier] {
         var airlines = [Carrier]()
@@ -50,7 +50,7 @@ final class SkyScannerDataStore {
     }
     
     
-    func retriveFlights(_ budget: Int) {
+    func retriveFlights(_ budget: Int, completion: @escaping (Bool) -> Void) {
         
         var outboundOriginCity = String()
         var outboundCountry = String()
@@ -77,6 +77,7 @@ final class SkyScannerDataStore {
                 guard let quotes = JSON["Quotes"] as? [[String: Any]],
                     let places = JSON["Places"] as? [[String: Any]],
                     let carriers = JSON["Carriers"] as? [[String: Any]] else {
+                        completion(false)
                         return
                 }
                 
@@ -85,8 +86,10 @@ final class SkyScannerDataStore {
                 
                 for quote in quotes {
                     guard let value = quote["MinPrice"] as? Int else { // NOTE: - Sometimes breaks here
+                        completion(false)
                         return
                     }
+                    
                     if value <= budget {
                         var cheapestFlight = Quote(JSON: quote) // NOTE: - Sometimes breaks here
                         self.flightQuotes.append(cheapestFlight)
@@ -96,8 +99,6 @@ final class SkyScannerDataStore {
                 for flight in self.flightQuotes {
                     print("FLight")
                     for location in locations {
-                        print("location")
-                        print("Here is my locationID: \(location.placeID)")
                         if flight.outboundOriginID == location.placeID {
                             flight.outboundOriginCity = location.city
                             flight.outboundOriginCountry = location.country
@@ -126,20 +127,13 @@ final class SkyScannerDataStore {
                     
                     for airline in airlines {
                         
-                        if flight.inboundCarriers.contains(1713) {
-                            print("YESSS WE EXIST")
-                        }
+//                        if flight.inboundCarriers.contains(1713) {
+//                        }
                         
                             
                         if flight.inboundCarriers.contains(airline.carrierID) {
-                            print("FLIGHT CARRIER ID: \(flight.inboundCarriers)")
-                            print("AIRLINE CARRIER ID \(airline.carrierID)")
-                            print("AIRLINE NAME: \(airline.name)")
                             // TODO: - This might override previous values
                             flight.inboundAirlines = [airline.name]
-                                print("AIRLINE NAME 2: \(airline.name)")
-
-
                         }
                         
                         if flight.outboundCarriers.contains(airline.carrierID) {
@@ -150,19 +144,20 @@ final class SkyScannerDataStore {
 
                 }
                 
-                for flight in self.flightQuotes {
-                    
-                    print("Here are the carriers: \(flight.inboundCarriers)")
-                    print("Here is the origin city: \(flight.inboundOriginCity)")
-                    print("Here is the destination city: \(flight.inboundDestinationCity)")
-                    print("Here is the airlines: \(flight.inboundAirlines)")
-                    print("Here is the price: \(flight.minPrice)")
-                    print("Quote ID: \(flight.quoteID)")
-
-                }
+//                for flight in self.flightQuotes {
+//                    print("Here are the carriers: \(flight.inboundCarriers)")
+//                    print("Here is the origin city: \(flight.inboundOriginCity)")
+//                    print("Here is the destination city: \(flight.inboundDestinationCity)")
+//                    print("Here is the airlines: \(flight.inboundAirlines)")
+//                    print("Here is the price: \(flight.minPrice)")
+//                    print("Quote ID: \(flight.quoteID)")
+//
+//                }
+                
+                print("These are the quotes: \(self.flightQuotes.count)")
+                completion(true)
                 
             }
-            print("These are the quotes: \(self.flightQuotes.count)")
 
         }
         
