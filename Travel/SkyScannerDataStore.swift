@@ -126,9 +126,10 @@ final class SkyScannerDataStore {
                     
                     for airline in airlines {
                         
-                        if airline.carrierID == 1713 {
-                            print("Hello we exist!")
+                        if flight.inboundCarriers.contains(1713) {
+                            print("YESSS WE EXIST")
                         }
+                        
                             
                         if flight.inboundCarriers.contains(airline.carrierID) {
                             print("FLIGHT CARRIER ID: \(flight.inboundCarriers)")
@@ -151,8 +152,7 @@ final class SkyScannerDataStore {
                 
                 for flight in self.flightQuotes {
                     
-                    
-                    
+                    print("Here are the carriers: \(flight.inboundCarriers)")
                     print("Here is the origin city: \(flight.inboundOriginCity)")
                     print("Here is the destination city: \(flight.inboundDestinationCity)")
                     print("Here is the airlines: \(flight.inboundAirlines)")

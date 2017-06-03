@@ -13,6 +13,9 @@ import UIKit
 
 class FlightViewController: UIViewController {
 
+    // TODO: - Separate logic
+    let store = SkyScannerDataStore.shared
+    
     let tableView = UITableView()
     let button = UIButton()
     
@@ -68,15 +71,17 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flightCell", for: indexPath) as! FlightCell
-        
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let currentCell = cell as! FlightCell
+        let quote = store.flightQuotes[indexPath.row]
+        
         
         // TODO: - Find out how to seperate functionality to view model
-       // currentCell.quote = quote
+        currentCell.quote = quote
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -46,7 +46,7 @@ class FlightCell: UITableViewCell {
     
     
    func configureLabels() {
-    destinationLabel.text =  "San Jose" //"\(quote?.outboundOriginID)" // TODO:- Change to origin name
+    destinationLabel.text =  quote?.outboundDestinationCity // TODO:- Change to origin name
     priceLabel.text = "\(quote?.minPrice)"
     directLabel.text = "\(quote?.direct)"   // TODO: - Change to Non-stop or stops
    // dates.text = quote?.outboundDepartureDate + quote?.outboundDepartureDate // TODO: - format
