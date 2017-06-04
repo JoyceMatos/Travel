@@ -116,5 +116,7 @@ class HomeView: UIView {
         stayLabel.text = "Stay"
         activityLabel.text = "Activity"
     }
+    
+
 
 }

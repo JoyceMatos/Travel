@@ -28,4 +28,20 @@ class HomeViewController: UIViewController {
             $0.height.width.centerX.centerY.equalToSuperview()
         }
     }
+    
+    // TODO: - Separate logic
+    
+    func addTargets() {
+        homeView.flightView.addTarget(self, action: #selector(segueToFLightVC), for: .touchUpInside)
+        
+    }
+    
+    func segueToFLightVC() {
+        present(FlightViewController(), animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
 }

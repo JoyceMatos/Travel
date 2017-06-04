@@ -91,12 +91,34 @@ struct FlightViewModel {
         return quote?.inboundDepartureDate
         }
     
-    
     init(quote: Quote) {
         self.quote = quote
         
     }
-
     
+    // These get called in tableView ie: viewModel.numberOfSections(in section)
+    func numberOfSections(in section: Int) -> Int {
+        return store.flightQuotes.count
+    }
+    
+    func titleForRow(at indexPath: IndexPath) -> String {
+        // TODO: - Check force casting
+        let destinationCity = store.flightQuotes[indexPath.row].outboundDestinationCity as! String
+        return destinationCity
+    }
+    
+    func fetchFlight(with budget: Int, completion: @escaping (Bool) -> Void) {
+        store.retriveFlights(budget) { (success) in
+            if success {
+                completion(true)
+                // Do something
+            } else {
+                completion(false)
+                // Handle this
+            }
+        }
+        
+    }
+
     
 }

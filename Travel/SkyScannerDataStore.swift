@@ -16,6 +16,7 @@ final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
     var flightQuotes = [Quote]()
+    var flightViewModels: [FlightViewModel]?
     
     private init() {}
     
@@ -55,15 +56,12 @@ final class SkyScannerDataStore {
         var outboundOriginCity = String()
         var outboundCountry = String()
         var outboundIata = String()
-        
         var outboundDestinationCity = String()
         var outboundDestinationCountry = String()
         var outboundDestinationIata = String()
-        
         var inboundOriginCity = String()
         var inboundOriginCountry = String()
         var inboundOriginIata = String()
-        
         var inboundDestinationCity = String()
         var inboundDestinationCountry = String()
         var inboundDestinationIata = String()
@@ -127,10 +125,6 @@ final class SkyScannerDataStore {
                     
                     for airline in airlines {
                         
-//                        if flight.inboundCarriers.contains(1713) {
-//                        }
-                        
-                            
                         if flight.inboundCarriers.contains(airline.carrierID) {
                             // TODO: - This might override previous values
                             flight.inboundAirlines = [airline.name]
@@ -141,27 +135,27 @@ final class SkyScannerDataStore {
                         }
                     }
                     
-
+                    
                 }
                 
-//                for flight in self.flightQuotes {
-//                    print("Here are the carriers: \(flight.inboundCarriers)")
-//                    print("Here is the origin city: \(flight.inboundOriginCity)")
-//                    print("Here is the destination city: \(flight.inboundDestinationCity)")
-//                    print("Here is the airlines: \(flight.inboundAirlines)")
-//                    print("Here is the price: \(flight.minPrice)")
-//                    print("Quote ID: \(flight.quoteID)")
-//
-//                }
+                // Populate view model array
+                // TODO: - This logic has to be separated
                 
+                for quote in self.flightQuotes {
+                    let flight = FlightViewModel(quote: quote)
+                    self.flightViewModels?.append(flight)
+                }
+        
                 print("These are the quotes: \(self.flightQuotes.count)")
                 completion(true)
                 
             }
-
+            
         }
         
     }
+    
+    
     
     
     
