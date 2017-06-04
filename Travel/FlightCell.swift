@@ -12,24 +12,24 @@ import SnapKit
 // TODO: - Assign identifier
 class FlightCell: UITableViewCell {
     
-    let destinationLabel = UILabel()
-    let priceLabel = UILabel()
-    let directLabel = UILabel()
-    let datesLabel = UILabel()
-    let outboundCarrierLabel = UILabel()
-    let outboundDepartTimeLabel = UILabel()
-    let outboundArrivalTimeLabel = UILabel()
-    let outboundOriginAirportLabel = UILabel()
-    let outboundDestAirportLabel = UILabel()
-    let inboundCarrierLabel = UILabel()
-    let inboundDepartTimeLabel = UILabel()
-    let inboundArrivalTimeLabel = UILabel()
-    let inboundOriginAirportLabel = UILabel()
-    let inboundDestAirportLabel = UILabel()
+    var destinationLabel = UILabel()
+    var priceLabel = UILabel()
+    var directLabel = UILabel()
+    var datesLabel = UILabel()
+    var outboundCarrierLabel = UILabel()
+    var outboundDepartTimeLabel = UILabel()
+    var outboundArrivalTimeLabel = UILabel()
+    var outboundOriginAirportLabel = UILabel()
+    var outboundDestAirportLabel = UILabel()
+    var inboundCarrierLabel = UILabel()
+    var inboundDepartTimeLabel = UILabel()
+    var inboundArrivalTimeLabel = UILabel()
+    var inboundOriginAirportLabel = UILabel()
+    var inboundDestAirportLabel = UILabel()
     
     var quote: Quote? {
         didSet {
-                configureLabels()
+            configureLabels()
         }
     }
     
@@ -45,28 +45,34 @@ class FlightCell: UITableViewCell {
     }
     
     
-   func configureLabels() {
-    destinationLabel.text =  quote?.outboundDestinationCity // TODO:- Change to origin name
-    priceLabel.text = "\(quote?.minPrice)"
-    directLabel.text = "\(quote?.direct)"   // TODO: - Change to Non-stop or stops
-   // dates.text = quote?.outboundDepartureDate + quote?.outboundDepartureDate // TODO: - format
-    
-    outboundCarrierLabel.text = "\(quote?.outboundCarriers)" // TODO: - Show each
-    outboundDepartTimeLabel.text = ""
-    outboundArrivalTimeLabel.text = ""
-    outboundOriginAirportLabel.text = "\(quote?.outboundOriginID)" // TODO: - get airport name
-    outboundDestAirportLabel.text = "\(quote?.outboundDestinationID)" //TODO: - get airport name
-    
-    inboundCarrierLabel.text = "\(quote?.inboundCarriers)"
-    inboundDepartTimeLabel.text = ""
-    inboundArrivalTimeLabel.text  = ""
-    inboundOriginAirportLabel.text = "\(quote?.inboundOriginID)" // TODO: - get airport name
-    inboundDestAirportLabel.text = "\(quote?.inboundDestinationID)" // TODO: - Get airport name
-    
+    func configureLabels() {
+        
+        guard let price = quote?.minPrice,
+        let direct = quote?.direct else {
+            // Handle
+            return
+        }
+        
+        destinationLabel.text =  quote?.outboundDestinationCity
+        priceLabel.text = "$\(price)"
+        directLabel.text = direct ? "Non-stop" : "Stops"   // TODO: - Change to Non-stop or stops
+        // dates.text = quote?.outboundDepartureDate + quote?.outboundDepartureDate // TODO: - format
+        
+        outboundCarrierLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
+        outboundDepartTimeLabel.text = ""
+        outboundArrivalTimeLabel.text = ""
+        outboundOriginAirportLabel.text = quote?.outboundOriginIata // TODO: - get airport name
+        outboundDestAirportLabel.text = "\(quote?.outboundDestinationID)" //TODO: - get airport name
+        
+        inboundCarrierLabel.text = "\(quote?.inboundCarriers)"
+        inboundDepartTimeLabel.text = ""
+        inboundArrivalTimeLabel.text  = ""
+        inboundOriginAirportLabel.text = "\(quote?.inboundOriginID)" // TODO: - get airport name
+        inboundDestAirportLabel.text = "\(quote?.inboundDestinationID)" // TODO: - Get airport name
+        
     }
     
     func constrain() {
-        
         self.contentView.addSubview(destinationLabel)
         self.contentView.addSubview(priceLabel)
         self.contentView.addSubview(directLabel)
@@ -82,15 +88,65 @@ class FlightCell: UITableViewCell {
         self.contentView.addSubview(inboundOriginAirportLabel)
         self.contentView.addSubview(inboundDestAirportLabel)
         
+        priceLabel.textAlignment = .right
+        directLabel.textAlignment = .right
+
         destinationLabel.textColor = UIColor.black
+        priceLabel.textColor = UIColor.black
+        outboundCarrierLabel.textColor = UIColor.darkGray
+        outboundOriginAirportLabel.textColor = UIColor.black
+        directLabel.textColor = UIColor.blue
+        
         destinationLabel.font.withSize(14)
+        priceLabel.font.withSize(12)
+        outboundCarrierLabel.font.withSize(12)
+        outboundOriginAirportLabel.font.withSize(12)
+        directLabel.font.withSize(12)
+        
+        // TODO: - Condense contraints
         
         destinationLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
-            $0.leading.equalToSuperview().inset(40)
-            $0.height.equalToSuperview().multipliedBy(0.5)
+            $0.leading.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.4)
+        }
+        
+        priceLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        outboundCarrierLabel.snp.makeConstraints {
+            $0.top.equalTo(destinationLabel.snp.bottom)
+            $0.leading.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
             $0.width.equalToSuperview().multipliedBy(0.8)
         }
+        
+        outboundOriginAirportLabel.snp.makeConstraints {
+            $0.top.equalTo(outboundCarrierLabel.snp.bottom)
+            $0.leading.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.8)
+        }
+        
+        directLabel.snp.makeConstraints {
+            $0.top.equalTo(outboundCarrierLabel.snp.bottom)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.8)
+        }
+        
+        
     }
+    
+    override func prepareForReuse() {
+        destinationLabel.text = nil
+        outboundCarrierLabel.text = nil
+        outboundOriginAirportLabel.text = nil
+            }
 
 }
