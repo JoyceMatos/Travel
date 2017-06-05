@@ -10,10 +10,15 @@ import UIKit
 
 class FlightDetailViewController: UIViewController {
 
+    
+    var flight: Quote?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        
+        
     }
 
 

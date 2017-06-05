@@ -87,6 +87,13 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Segue to detailView
+        
+    }
+    
+    // TODO: - Work on this
     func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath ) {
         cell.textLabel?.text = viewModel?.titleForRow(at: indexPath)
     }
