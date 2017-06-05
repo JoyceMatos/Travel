@@ -84,12 +84,11 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
     
     func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath ) {
         cell.textLabel?.text = viewModel?.titleForRow(at: indexPath)
-        print("Configuring cell")
     }
     
 }

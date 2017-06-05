@@ -9,19 +9,23 @@
 import UIKit
 import SnapKit
 
-// TODO: - Assign identifier
+// TODO: - Rename properties
+
+
 class FlightCell: UITableViewCell {
     
     var destinationLabel = UILabel()
     var priceLabel = UILabel()
     var directLabel = UILabel()
     var datesLabel = UILabel()
-    var outboundCarrierLabel = UILabel()
+    var outboundDestAirlineLabel = UILabel()
+    var outboundOriginAirlineLabel = UILabel()
     var outboundDepartTimeLabel = UILabel()
     var outboundArrivalTimeLabel = UILabel()
     var outboundOriginAirportLabel = UILabel()
     var outboundDestAirportLabel = UILabel()
-    var inboundCarrierLabel = UILabel()
+    var inboundDestAirlineLabel = UILabel()
+    var inboundOriginAirlineLabel = UILabel()
     var inboundDepartTimeLabel = UILabel()
     var inboundArrivalTimeLabel = UILabel()
     var inboundOriginAirportLabel = UILabel()
@@ -58,17 +62,18 @@ class FlightCell: UITableViewCell {
         directLabel.text = direct ? "Non-stop" : "Stops"   // TODO: - Change to Non-stop or stops
         // dates.text = quote?.outboundDepartureDate + quote?.outboundDepartureDate // TODO: - format
         
-        outboundCarrierLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
+        outboundDestAirlineLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
+        outboundOriginAirlineLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
         outboundDepartTimeLabel.text = ""
         outboundArrivalTimeLabel.text = ""
         outboundOriginAirportLabel.text = quote?.outboundOriginIata // TODO: - get airport name
-        outboundDestAirportLabel.text = "\(quote?.outboundDestinationID)" //TODO: - get airport name
+        outboundDestAirportLabel.text = quote?.outboundDestinationIata //TODO: - get airport name
         
-        inboundCarrierLabel.text = "\(quote?.inboundCarriers)"
+        inboundDestAirlineLabel.text = quote?.inboundAirlines?.description
         inboundDepartTimeLabel.text = ""
         inboundArrivalTimeLabel.text  = ""
-        inboundOriginAirportLabel.text = "\(quote?.inboundOriginID)" // TODO: - get airport name
-        inboundDestAirportLabel.text = "\(quote?.inboundDestinationID)" // TODO: - Get airport name
+        inboundOriginAirportLabel.text = quote?.inboundOriginIata // TODO: - get airport name
+        inboundDestAirportLabel.text = quote?.inboundDestinationIata // TODO: - Get airport name
         
     }
     
@@ -77,12 +82,12 @@ class FlightCell: UITableViewCell {
         self.contentView.addSubview(priceLabel)
         self.contentView.addSubview(directLabel)
         self.contentView.addSubview(datesLabel)
-        self.contentView.addSubview(outboundCarrierLabel)
+        self.contentView.addSubview(outboundDestAirlineLabel)
         self.contentView.addSubview(outboundDepartTimeLabel)
         self.contentView.addSubview(outboundArrivalTimeLabel)
         self.contentView.addSubview(outboundOriginAirportLabel)
         self.contentView.addSubview(outboundDestAirportLabel)
-        self.contentView.addSubview(inboundCarrierLabel)
+        self.contentView.addSubview(inboundDestAirlineLabel)
         self.contentView.addSubview(inboundDepartTimeLabel)
         self.contentView.addSubview(inboundArrivalTimeLabel)
         self.contentView.addSubview(inboundOriginAirportLabel)
@@ -93,13 +98,13 @@ class FlightCell: UITableViewCell {
 
         destinationLabel.textColor = UIColor.black
         priceLabel.textColor = UIColor.black
-        outboundCarrierLabel.textColor = UIColor.darkGray
+        outboundDestAirlineLabel.textColor = UIColor.darkGray
         outboundOriginAirportLabel.textColor = UIColor.black
         directLabel.textColor = UIColor.blue
         
         destinationLabel.font.withSize(14)
         priceLabel.font.withSize(12)
-        outboundCarrierLabel.font.withSize(12)
+        outboundDestAirlineLabel.font.withSize(12)
         outboundOriginAirportLabel.font.withSize(12)
         directLabel.font.withSize(12)
         
@@ -119,22 +124,51 @@ class FlightCell: UITableViewCell {
             $0.width.equalToSuperview().multipliedBy(0.3)
         }
         
-        outboundCarrierLabel.snp.makeConstraints {
+        outboundDestAirlineLabel.snp.makeConstraints {
             $0.top.equalTo(destinationLabel.snp.bottom)
             $0.leading.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(0.2)
-            $0.width.equalToSuperview().multipliedBy(0.8)
+            $0.width.equalToSuperview().multipliedBy(0.3)
         }
         
         outboundOriginAirportLabel.snp.makeConstraints {
-            $0.top.equalTo(outboundCarrierLabel.snp.bottom)
+            $0.top.equalTo(outboundDestAirlineLabel.snp.bottom)
             $0.leading.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(0.2)
-            $0.width.equalToSuperview().multipliedBy(0.8)
+            $0.width.equalToSuperview().multipliedBy(0.3)
         }
         
+//        outboundDestAirlineLabel.snp.makeConstraints {
+//            $0.top.equalTo(outboundOriginAirlineLabel)
+//            $0.trailing.equalToSuperview().inset(20)
+//            $0.height.equalTo(outboundOriginAirportLabel).multipliedBy(0.2)
+//            $0.width.equalTo(outboundOriginAirportLabel).multipliedBy(0.1)
+//        }
+        
+        inboundDestAirlineLabel.snp.makeConstraints {
+            $0.top.equalTo(outboundOriginAirportLabel.snp.bottom)
+            $0.leading.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.4)
+        }
+        
+        inboundDestAirportLabel.snp.makeConstraints {
+            $0.top.equalTo(inboundDestAirlineLabel.snp.bottom)
+            $0.leading.equalToSuperview().inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.2)
+            $0.width.equalToSuperview().multipliedBy(0.4)
+        }
+        
+//        inboundCarrierLabel.snp.makeConstraints {
+//            $0.top.equalTo(inboun.snp.bottom)
+//            $0.leading.equalToSuperview().inset(20)
+//            $0.height.equalToSuperview().multipliedBy(0.2)
+//            $0.width.equalToSuperview().multipliedBy(0.4)
+//        }
+//        
+        
         directLabel.snp.makeConstraints {
-            $0.top.equalTo(outboundCarrierLabel.snp.bottom)
+            $0.top.equalTo(outboundDestAirlineLabel.snp.bottom)
             $0.trailing.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(0.2)
             $0.width.equalToSuperview().multipliedBy(0.8)
@@ -145,7 +179,7 @@ class FlightCell: UITableViewCell {
     
     override func prepareForReuse() {
         destinationLabel.text = nil
-        outboundCarrierLabel.text = nil
+        outboundDestAirlineLabel.text = nil
         outboundOriginAirportLabel.text = nil
             }
 
