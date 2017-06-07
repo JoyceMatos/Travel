@@ -13,7 +13,7 @@ import Foundation
 // TODO: - Add origin city, country, airline
 // TODO: - Naming convention
 
-final class Quote {
+final class Flight {
     
     var quoteID: Int    // Debatable property
     var minPrice: Int

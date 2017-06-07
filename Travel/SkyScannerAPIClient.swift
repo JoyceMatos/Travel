@@ -28,8 +28,7 @@ class SkyScannerAPIClient {
             if let JSON = response.result.value as? JSON {
                 print("JSON: \(JSON)")
                 completion(JSON)
-
-            }
+            } 
         }
         
     }

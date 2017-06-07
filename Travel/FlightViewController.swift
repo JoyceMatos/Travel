@@ -77,10 +77,10 @@ extension FlightViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let currentCell = cell as! FlightCell
-        let quote = store.flightQuotes[indexPath.row]
+        let flight = store.flightQuotes[indexPath.row]
         
         // TODO: - Find out how to seperate functionality to view model
-        currentCell.quote = quote
+        currentCell.flight = flight
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -11,7 +11,7 @@ import UIKit
 class FlightDetailViewController: UIViewController {
 
     
-    var flight: Quote?
+    var flight: Flight?
     
     override func viewDidLoad() {
         super.viewDidLoad()

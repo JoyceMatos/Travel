@@ -31,7 +31,7 @@ class FlightCell: UITableViewCell {
     var inboundOriginAirportLabel = UILabel()
     var inboundDestAirportLabel = UILabel()
     
-    var quote: Quote? {
+    var flight: Flight? {
         didSet {
             configureLabels()
         }
@@ -51,29 +51,29 @@ class FlightCell: UITableViewCell {
     
     func configureLabels() {
         
-        guard let price = quote?.minPrice,
-        let direct = quote?.direct else {
-            // Handle
-            return
+        guard let price = flight?.minPrice,
+            let direct = flight?.direct else {
+                // Handle
+                return
         }
         
-        destinationLabel.text =  quote?.outboundDestinationCity
+        destinationLabel.text =  flight?.outboundDestinationCity
         priceLabel.text = "$\(price)"
         directLabel.text = direct ? "Non-stop" : "Stops"   // TODO: - Change to Non-stop or stops
         // dates.text = quote?.outboundDepartureDate + quote?.outboundDepartureDate // TODO: - format
         
-        outboundDestAirlineLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
-        outboundOriginAirlineLabel.text = quote?.outboundAirlines?.description // TODO: - Show each
+        outboundDestAirlineLabel.text = flight?.outboundAirlines?.description // TODO: - Show each
+        outboundOriginAirlineLabel.text = flight?.outboundAirlines?.description // TODO: - Show each
         outboundDepartTimeLabel.text = ""
         outboundArrivalTimeLabel.text = ""
-        outboundOriginAirportLabel.text = quote?.outboundOriginIata // TODO: - get airport name
-        outboundDestAirportLabel.text = quote?.outboundDestinationIata //TODO: - get airport name
+        outboundOriginAirportLabel.text = flight?.outboundOriginIata // TODO: - get airport name
+        outboundDestAirportLabel.text = flight?.outboundDestinationIata //TODO: - get airport name
         
-        inboundDestAirlineLabel.text = quote?.inboundAirlines?.description
+        inboundDestAirlineLabel.text = flight?.inboundAirlines?.description
         inboundDepartTimeLabel.text = ""
         inboundArrivalTimeLabel.text  = ""
-        inboundOriginAirportLabel.text = quote?.inboundOriginIata // TODO: - get airport name
-        inboundDestAirportLabel.text = quote?.inboundDestinationIata // TODO: - Get airport name
+        inboundOriginAirportLabel.text = flight?.inboundOriginIata // TODO: - get airport name
+        inboundDestAirportLabel.text = flight?.inboundDestinationIata // TODO: - Get airport name
         
     }
     
@@ -95,7 +95,7 @@ class FlightCell: UITableViewCell {
         
         priceLabel.textAlignment = .right
         directLabel.textAlignment = .right
-
+        
         destinationLabel.textColor = UIColor.black
         priceLabel.textColor = UIColor.black
         outboundDestAirlineLabel.textColor = UIColor.darkGray
@@ -138,12 +138,12 @@ class FlightCell: UITableViewCell {
             $0.width.equalToSuperview().multipliedBy(0.3)
         }
         
-//        outboundDestAirlineLabel.snp.makeConstraints {
-//            $0.top.equalTo(outboundOriginAirlineLabel)
-//            $0.trailing.equalToSuperview().inset(20)
-//            $0.height.equalTo(outboundOriginAirportLabel).multipliedBy(0.2)
-//            $0.width.equalTo(outboundOriginAirportLabel).multipliedBy(0.1)
-//        }
+        //        outboundDestAirlineLabel.snp.makeConstraints {
+        //            $0.top.equalTo(outboundOriginAirlineLabel)
+        //            $0.trailing.equalToSuperview().inset(20)
+        //            $0.height.equalTo(outboundOriginAirportLabel).multipliedBy(0.2)
+        //            $0.width.equalTo(outboundOriginAirportLabel).multipliedBy(0.1)
+        //        }
         
         inboundDestAirlineLabel.snp.makeConstraints {
             $0.top.equalTo(outboundOriginAirportLabel.snp.bottom)
@@ -159,13 +159,13 @@ class FlightCell: UITableViewCell {
             $0.width.equalToSuperview().multipliedBy(0.4)
         }
         
-//        inboundCarrierLabel.snp.makeConstraints {
-//            $0.top.equalTo(inboun.snp.bottom)
-//            $0.leading.equalToSuperview().inset(20)
-//            $0.height.equalToSuperview().multipliedBy(0.2)
-//            $0.width.equalToSuperview().multipliedBy(0.4)
-//        }
-//        
+        //        inboundCarrierLabel.snp.makeConstraints {
+        //            $0.top.equalTo(inboun.snp.bottom)
+        //            $0.leading.equalToSuperview().inset(20)
+        //            $0.height.equalToSuperview().multipliedBy(0.2)
+        //            $0.width.equalToSuperview().multipliedBy(0.4)
+        //        }
+        //
         
         directLabel.snp.makeConstraints {
             $0.top.equalTo(outboundDestAirlineLabel.snp.bottom)
@@ -181,6 +181,6 @@ class FlightCell: UITableViewCell {
         destinationLabel.text = nil
         outboundDestAirlineLabel.text = nil
         outboundOriginAirportLabel.text = nil
-            }
-
+    }
+    
 }

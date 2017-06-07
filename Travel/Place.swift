@@ -22,6 +22,7 @@ struct Place {
 
 // This extension allows us to keep our default initializer
 extension Place {
+
     init(with JSON: JSON) {
         let placeID = JSON["PlaceId"] as! Int
         let iataCode = JSON["IataCode"] as! String

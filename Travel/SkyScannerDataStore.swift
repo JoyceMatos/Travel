@@ -15,7 +15,7 @@ import Foundation
 final class SkyScannerDataStore {
     
     static let shared = SkyScannerDataStore()
-    var flightQuotes = [Quote]()
+    var flightQuotes = [Flight]()
     var flightViewModels: [FlightViewModel]?
     
     private init() {}
@@ -89,7 +89,7 @@ final class SkyScannerDataStore {
                     }
                     
                     if value <= budget {
-                        var cheapestFlight = Quote(JSON: quote) // NOTE: - Sometimes breaks here
+                        var cheapestFlight = Flight(JSON: quote) // NOTE: - Sometimes breaks here
                         self.flightQuotes.append(cheapestFlight)
                     }
                 }
@@ -142,7 +142,7 @@ final class SkyScannerDataStore {
                 // TODO: - This logic has to be separated
                 
                 for quote in self.flightQuotes {
-                    let flight = FlightViewModel(quote: quote)
+                    let flight = FlightViewModel(flight: quote)
                     self.flightViewModels?.append(flight)
                 }
         
